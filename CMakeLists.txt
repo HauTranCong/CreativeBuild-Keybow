@@ -37,12 +37,11 @@ target_link_libraries(CreativeBuild-Keybow
 pico_add_extra_outputs(CreativeBuild-Keybow)
 
 add_definitions(-DUSE_TINYUSB)
-add_definitions(-DFAMILY=rp2040)
 add_definitions(-DUSB_PRODUCT="CreativeBuild.co")
 add_definitions(-DARDUINO_ARCH_RP2040)
 add_definitions(-DCFG_TUSB_CONFIG_FILE="includes/tusb_config.h")
 
-pico_enable_stdio_usb(${PROJECT_NAME} ENABLED)
+pico_enable_stdio_usb(${PROJECT_NAME} 1)
 pico_enable_stdio_uart(${PROJECT_NAME} 0)
 
 include_directories(includes
