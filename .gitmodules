@@ -4,6 +4,3 @@
 [submodule "TinyUSB_Mouse_and_Keyboard"]
 	path = TinyUSB_Mouse_and_Keyboard
 	url = https://github.com/cyborg5/TinyUSB_Mouse_and_Keyboard/
-[submodule "Adafruit_NeoPixel"]
-	path = Adafruit_NeoPixel
-	url = https://github.com/adafruit/Adafruit_NeoPixel/
