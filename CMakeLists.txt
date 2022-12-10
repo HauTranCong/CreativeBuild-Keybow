@@ -14,13 +14,13 @@ pico_sdk_init()
 
 #Định nghĩa sự liên quan giữa file thực thi và các file nguồn
 add_executable(${PROJECT_NAME}
-    main.cpp
+    src/main.cpp
+    src/Print.cpp
+    src/WS2812.cpp
     TinyUSB_Mouse_and_Keyboard/TinyUSB_Mouse_and_Keyboard.cpp
     Adafruit_TinyUSB_Arduino/src/arduino/hid/Adafruit_USBD_HID.cpp
     Adafruit_TinyUSB_Arduino/src/arduino/Adafruit_USBD_Device.cpp
     Adafruit_TinyUSB_Arduino/src/arduino/ports/rp2040/Adafruit_TinyUSB_rp2040.cpp
-    Print.cpp
-    WS2812.cpp
 )
 
 target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_LIST_DIR})
@@ -37,8 +37,8 @@ target_link_libraries(${PROJECT_NAME}
 pico_add_extra_outputs(${PROJECT_NAME})
 
 add_definitions(-DUSE_TINYUSB)
+add_definitions(-DFAMILY=rp2040)
 add_definitions(-DUSB_PRODUCT="CreativeBuild.co")
-# add_definitions(-DFAMILY=rp2040)
 add_definitions(-DARDUINO_ARCH_RP2040)
 add_definitions(-DCFG_TUSB_CONFIG_FILE="includes/tusb_config.h")
 
