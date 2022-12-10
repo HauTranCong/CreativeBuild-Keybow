@@ -5,7 +5,7 @@ cmake_minimum_required(VERSION 3.17)
 include(pico_sdk_import.cmake)
 
 #Tên project và các ngôn ngữ được sử dụng trong project C, C++, Asm
-project(CreativeBuild-Keybow C CXX ASM)
+project(CreativeBuild_Keybow C CXX ASM)
 #Set các chuẩn của C, C++
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_CXX_STANDARD 17)
@@ -13,7 +13,7 @@ set(CMAKE_CXX_STANDARD 17)
 pico_sdk_init()
 
 #Định nghĩa sự liên quan giữa file thực thi và các file nguồn
-add_executable(CreativeBuild-Keybow
+add_executable(${PROJECT_NAME}
     main.cpp
     TinyUSB_Mouse_and_Keyboard/TinyUSB_Mouse_and_Keyboard.cpp
     Adafruit_TinyUSB_Arduino/src/arduino/hid/Adafruit_USBD_HID.cpp
@@ -23,9 +23,9 @@ add_executable(CreativeBuild-Keybow
     WS2812.cpp
 )
 
-target_include_directories(CreativeBuild-Keybow PRIVATE ${CMAKE_CURRENT_LIST_DIR})
+target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_LIST_DIR})
 
-target_link_libraries(CreativeBuild-Keybow
+target_link_libraries(${PROJECT_NAME}
     pico_stdlib
     pico_multicore
     hardware_pio
@@ -34,15 +34,15 @@ target_link_libraries(CreativeBuild-Keybow
     tinyusb_device
     tinyusb_board
 )
-pico_add_extra_outputs(CreativeBuild-Keybow)
+pico_add_extra_outputs(${PROJECT_NAME})
 
 add_definitions(-DUSE_TINYUSB)
-add_definitions(-DFAMILY=rp2040)
 add_definitions(-DUSB_PRODUCT="CreativeBuild.co")
+# add_definitions(-DFAMILY=rp2040)
 add_definitions(-DARDUINO_ARCH_RP2040)
 add_definitions(-DCFG_TUSB_CONFIG_FILE="includes/tusb_config.h")
 
-pico_enable_stdio_usb(${PROJECT_NAME} 1)
+pico_enable_stdio_usb(${PROJECT_NAME} ENABLED)
 pico_enable_stdio_uart(${PROJECT_NAME} 0)
 
 include_directories(includes
@@ -60,3 +60,4 @@ file(REMOVE_RECURSE Adafruit_TinyUSB_Arduino/src/portable/)
 file(REMOVE_RECURSE Adafruit_TinyUSB_Arduino/src/device/)
 file(REMOVE_RECURSE Adafruit_TinyUSB_Arduino/src/common/)
 file(REMOVE_RECURSE Adafruit_TinyUSB_Arduino/src/class/)
+file(REMOVE_RECURSE Adafruit_TinyUSB_Arduino/src/host/)
