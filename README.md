@@ -7,4 +7,7 @@
 5. Build by running make. (Or your build system equivalent.)
 6. Reset (or plug in) the Pico holding down the BOOTSEL and copy CreativeBuild_Keybow.uf2 to the Pico's USB mass storage device.
 7. You should have a keyboard device now. Shorting the GP18 -> GP21 pin to ground will trigger a keypress of keystrokes.
+## PCB Layout
+![image](https://user-images.githubusercontent.com/68090646/207233250-bb4b254a-ca4b-482f-b01e-f82204087147.png)
+![image](https://user-images.githubusercontent.com/68090646/207233328-8de07aa0-5071-4f01-8d59-3581e0d833b1.png)
 ## Reference: https://github.com/guruthree/pico-superkey-board#usage
