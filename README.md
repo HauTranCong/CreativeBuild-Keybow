@@ -7,11 +7,12 @@
 5. Build by running make. (Or your build system equivalent.)
 6. Reset (or plug in) the Pico holding down the BOOTSEL and copy CreativeBuild_Keybow.uf2 to the Pico's USB mass storage device.
 7. You should have a keyboard device now. Shorting the GP18 -> GP21 pin to ground will trigger a keypress of keystrokes.
-###    KEY1: KEY_LEFT_CTRL + C
-###    KEY2: KEY_LEFT_CTRL + V
-###    KEY3: KEY_LEFT_CTRL + KEY_LEFT_SHIFT + KEY_TAB
-###    KEY4: KEY_LEFT_CTRL + KEY_TAB
-###    Encoder:
+###    KEY 
+1. KEY1: KEY_LEFT_CTRL + C
+2. KEY2: KEY_LEFT_CTRL + V
+3. KEY3: KEY_LEFT_CTRL + KEY_LEFT_SHIFT + KEY_TAB
+4. KEY4: KEY_LEFT_CTRL + KEY_TAB
+Encoder:
 1. SW: Change background led
 2. CW: Scroll up
 3. CCW: Scroll down
